@@ -1,0 +1,8 @@
+div.block {
+  border: solid 1px #ccc;
+  border-radius: 5px;
+}
+
+input, label, button, p, textarea {
+  font-size: 0.7em
+}

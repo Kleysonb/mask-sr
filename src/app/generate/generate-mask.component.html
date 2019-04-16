@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="row pt-2">
+
+    <div class="col-sm">
+      <label for="typeahead-basic">Dados do Cliente:</label>
+        <div class="input-group mb-1">
+          <input #name type="text" class="form-control" placeholder="Nome" aria-label="name"
+              aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group mb-1">
+          <input #account type="text" class="form-control" placeholder="Conta Contrato" aria-label="cont"
+              aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group mb-1">
+          <input #phone type="tel" class="form-control" placeholder="Telefone" aria-label="phone"
+              aria-describedby="basic-addon1">
+        </div>  
+    </div>
+
+    <div class="col-sm">
+
+      <ng-template #rtInfo let-r="result" let-t="term">
+        <ngb-highlight [result]="r.titulo" [term]="t"></ngb-highlight>
+      </ng-template>
+    
+      <div (click)="focusInfo()">
+        <label for="info">Buscar por Informação:</label>
+        <input [disabled]="infoFocus" id="info" type="text" class="form-control" [(ngModel)]="modelInfo" [ngbTypeahead]="searchInfo" [inputFormatter]="formatterInfo" [resultTemplate]="rtInfo"/>
+      </div>
+
+      <ng-template #rtOrder let-r="result" let-t="term">
+        <ngb-highlight [result]="r.titulo" [term]="t"></ngb-highlight>
+      </ng-template>
+              
+      <div (click)="focusOrder()">
+        <label for="Order" class="mt-1">Buscar por Pedido:</label>
+        <input [disabled]="orderFocus" id="Order" type="text" class="form-control" [(ngModel)]="modelOrder" [ngbTypeahead]="searchOrder" [inputFormatter]="formatterOrder" [resultTemplate]="rtOrder"/>
+      </div>
+      <hr>
+
+      <div class="row">
+        <div class="col">
+          <button (click)="clear(name, account, phone)" type="button" class="btn btn-outline-secondary">LIMPAR CAMPOS</button>
+        </div>
+        <div class="col-6">
+            <button (click)="generate(name.value, account.value, phone.value)" type="button" class="btn btn-primary btn-block mb-3">GERAR</button>
+        </div>
+      </div>
+  
+    </div>
+          
+    <div class="input-group p-1 m-1 block">
+        <div style="width: 100%;">
+          <p>Descrição: {{ subtitulo }} </p>
+        </div>
+        <textarea #message [(ngModel)]="copy" rows="6" class="form-control" aria-label="With textarea"></textarea>
+        <div class="input-group-append">
+            <button (click)="copyInputMessage(message)" class="btn btn-outline-secondary" type="button" id="button-addon2">COPIAR</button>
+        </div>
+    </div>
+
+  </div>
+</div>

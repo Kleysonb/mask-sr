@@ -1,0 +1,124 @@
+{
+  "informacao": [
+    {
+      "titulo": "AFERIÇÃO DO MEDIDOR",
+      "subtitulo": "1032 Outras Informações ao Cliente",
+      "descricao": "Srº {$NOME_CLIENTE}\nTELEFONE: {$TELEFONE}\nCONTA CONTRATO: {$CONTA_CONTRATO}\n\nCLIENTE INFORMADO SOBRE AFERIÇÃO DO MEDIDOR, CIENTE SOBRE OS DOCUMENTOS NECESSÁRIO."
+    },
+    {
+      "titulo": "CNR - ABERTURA (CASO DISCORDE DA COBRANÇA)",
+      "subtitulo": "1014 Informação Sobre Fatura",
+      "descricao": "Srº {$NOME_CLIENTE}\nTELEFONE: {$TELEFONE}\nCONTA CONTRATO: {$CONTA_CONTRATO}\n\nCLIENTE ORIENTADO A SE DIRIGIR A AGÊNCIA COM A CARTA DE DEFESA EM MÃOS PARA ABERTURA DA RECLAMAÇÃO SOBRE CNR. CIENTE DE PRAZO DE 15 DIAS."
+    },
+    {
+      "titulo": "CNR - INFORMAÇÃO SOBRE NEGOCIAR O CNR (CASO ESTEJA CIENTE)",
+      "subtitulo": "1030 Informação Sobre Parcelamento",
+      "descricao": "Srº {$NOME_CLIENTE}\nTELEFONE: {$TELEFONE}\nCONTA CONTRATO: {$CONTA_CONTRATO}\n\nCLIENTE TRANSFERIDO PARA ILHA DE NEGOCIAÇÕES DE CNR."
+    },
+    {
+      "titulo": "CNR - ANDAMENTO DE RECLAMAÇÃO DE CNR (NOTA EM ABERTO)",
+      "subtitulo": "1018 Informação Sobre Situação do pedido",
+      "descricao": "Srº {$NOME_CLIENTE}\nTELEFONE: {$TELEFONE}\nCONTA CONTRATO: {$CONTA_CONTRATO}\n\nCLIENTE INFORMADO SOBRE PRAZO DE RECLAMAÇÃO DE CNR EM ABERTO."
+    },
+    {
+      "titulo": "CNR - ANDAMENTO DE RECLAMAÇÃO DE CNR (NOTA FINALIZADA)",
+      "subtitulo": "1018 Informação Sobre Situação do pedido",
+      "descricao": "Srº {$NOME_CLIENTE}\nTELEFONE: {$TELEFONE}\nCONTA CONTRATO: {$CONTA_CONTRATO}\n\nCLIENTE INFORMADO SOBRE PARECER DA RECLAMAÇÃO DE CNR."
+    },
+    {
+      "titulo": "CONTATO DA OUVIDORIA",
+      "subtitulo": "1010 Informações Sobre Atendimento",
+      "descricao": "Srº {$NOME_CLIENTE}\nTELEFONE: {$TELEFONE}\nCONTA CONTRATO: {$CONTA_CONTRATO}\n\nINFORMADO SOBRE CONTATO DA OUVIDORIA PARA INFORMAÇÃO OU ABERTURA DE SOLICITAÇÃO."
+    },
+    {
+      "titulo": "CONTATO DOS GRANDES CLIENTES (CORPORATIVO)",
+      "subtitulo": "1010 Informações Sobre Atendimento",
+      "descricao": "Srº {$NOME_CLIENTE}\nTELEFONE: {$TELEFONE}\nCONTA CONTRATO: {$CONTA_CONTRATO}\n\nINFORMADO SOBRE CONTATO DO 0800 DOS GRANDES CLIENTES PARA INFORMAÇÃO E ABERTURA DE SOLICITAÇÃO."
+    },
+    {
+      "titulo": "DÉBITO EM ABERTO",
+      "subtitulo": "1027 Informações Sobre Débitos",
+      "descricao": "Srº {$NOME_CLIENTE}\nTELEFONE: {$TELEFONE}\nCONTA CONTRATO: {$CONTA_CONTRATO}\n\nCLIENTE INFORMADO SOBRE OS DÉBITOS ABERTOS EM SUA CONTA CONTRATO."
+    },
+    {
+      "titulo": "DESLIGAMENTO PROVISÓRIO",
+      "subtitulo": "1031 Informações Sobre Desligamento",
+      "descricao": "Srº {$NOME_CLIENTE}\nTELEFONE: {$TELEFONE}\nCONTA CONTRATO: {$CONTA_CONTRATO}\n\nINFORMADO SOBRE DESLIGAMENTO PROVISÓRIO E PRAZOS."
+    },
+    {
+      "titulo": "DESLOCAMENTO DE POSTE",
+      "subtitulo": "1032 Outras Informações ao Cliente",
+      "descricao": "Srº {$NOME_CLIENTE}\nTELEFONE: {$TELEFONE}\nCONTA CONTRATO: {$CONTA_CONTRATO}\n\nINFORMADO SOBRE DESLOCAMENTO DE POSTE SOLICITADO NAS AGÊNCIAS E PRAZO."
+    },
+    {
+      "titulo": "FORMULÁRIO DE DOCUMENTO DE COBRANÇA",
+      "subtitulo": "1027 Informações Sobre Débitos",
+      "descricao": "Srº {$NOME_CLIENTE}\nTELEFONE: {$TELEFONE}\nCONTA CONTRATO: {$CONTA_CONTRATO}\n\nINFORMADO SOBRE VALORES DE COBRANÇA NÃO ARRECADADOS. ORIENTADO A BUSCAR A AGÊNCIA.."
+    },
+    {
+      "titulo": "HISTÓRICO DE CONSUMO",
+      "subtitulo": "1032 Outras Informações ao Cliente",
+      "descricao": "Srº {$NOME_CLIENTE}\nTELEFONE: {$TELEFONE}\nCONTA CONTRATO: {$CONTA_CONTRATO}\n\nINFORMADO SOBRE SOLICITAÇÃO DE HISTÓRICO DE CONSUMO. CLIENTE FOI ORIENTADO IR ATÉ A AGÊNCIA OU SITE."
+    },
+    {
+      "titulo": "ILUMINAÇÃO PÚBLICA",
+      "subtitulo": "1024 Informação Sobre Iluminação Pública",
+      "descricao": "Srº {$NOME_CLIENTE}\nTELEFONE: {$TELEFONE}\nCONTA CONTRATO: {$CONTA_CONTRATO}\n\nCLIENTE INFORMADO QUE ILUMINAÇÃO PÚBLICA E DE RESPONSABILIDADE DO SEU MUNICÍPIO E QUE DEVERÁ PROCURAR A PREFEITURA LOCAL."
+    },
+    {
+      "titulo": "LIGAÇÃO NOVA",
+      "subtitulo": "1020 Informações Sobre Ligação Nova",
+      "descricao": "Srº {$NOME_CLIENTE}\nTELEFONE: {$TELEFONE}\nCONTA CONTRATO: {$CONTA_CONTRATO}\n\nINFORMADO SOBRE DOCUMENTAÇÃO E PRAZO PARA SOLICITAÇÃO DE LIGAÇÃO NOVA."
+    },
+    {
+      "titulo": "LIGAÇÃO PROVISÓRIA",
+      "subtitulo": "1043 Informações Sobre Ligação Provisória",
+      "descricao": "Srº {$NOME_CLIENTE}\nTELEFONE: {$TELEFONE}\nCONTA CONTRATO: {$CONTA_CONTRATO}\n\nINFORMADO SOBRE SOLICITAÇÃO, DOCUMENTAÇÃO E PRAZO PARA INÍCIO DA LIGAÇÃO PROVISÓRIA."
+    },
+    {
+      "titulo": "MUDANÇA DE MEDIDOR DE LOCAL",
+      "subtitulo": "1032 Outras Informações ao Cliente",
+      "descricao": "Srº {$NOME_CLIENTE}\nTELEFONE: {$TELEFONE}\nCONTA CONTRATO: {$CONTA_CONTRATO}\n\nCLIENTE INFORMADO SOBRE MUDANÇA DE MEDIDOR DE LOCAL, CIENTE SOBRE OS DOCUMENTOS NECESSÁRIOS E PRAZOS."
+    },
+    {
+      "titulo": "PARCELAMENTO MAIOR QUE 90 DIAS",
+      "subtitulo": "1030 Informações Sobre Parcelamento",
+      "descricao": "Srº {$NOME_CLIENTE}\nTELEFONE: {$TELEFONE}\nCONTA CONTRATO: {$CONTA_CONTRATO}\n\nINFORMADO SOBRE NEGOCIAÇÃO. LIGAÇÃO FOI TRANSFERIDA PARA O SETOR RESPONSÁVEL."
+    },
+    {
+      "titulo": "PARCELAMENTO MENOR QUE 90 DIAS",
+      "subtitulo": "1030 Informações Sobre Parcelamento",
+      "descricao": "Srº {$NOME_CLIENTE}\nTELEFONE: {$TELEFONE}\nCONTA CONTRATO: {$CONTA_CONTRATO}\n\nINFORMADO SOBRE NEGOCIAÇÃO. CLIENTE FOI ORIENTADO IR ATÉ A AGÊNCIA DE ATENDIMENTO."
+    },
+    {
+      "titulo": "PODA DE ÁRVORE",
+      "subtitulo": "1032 Outras Informações ao Cliente",
+      "descricao": "Srº {$NOME_CLIENTE}\nTELEFONE: {$TELEFONE}\nCONTA CONTRATO: {$CONTA_CONTRATO}\n\nINFORMADO SOBRE PODA DE ÁRVORE. CLIENTE FOI ORIENTADO IR ATÉ A AGÊNCIA DE ATENDIMENTO."
+    },
+    {
+      "titulo": "PRIMEIRO FATURAMENTO",
+      "subtitulo": "1014 Informação Sobre Fatura",
+      "descricao": "Srº {$NOME_CLIENTE}\nTELEFONE: {$TELEFONE}\nCONTA CONTRATO: {$CONTA_CONTRATO}\n\nCLIENTE ORIENTADO SOBRE PRAZO PARA A GERAÇÃO DE SUA 1º FATURA E MEIOS DE EMISSÃO DE 2º VIA."
+    },
+    {
+      "titulo": "QUITAÇÃO ANUAL DE DÉBITO",
+      "subtitulo": "1027 Informações Sobre Débitos",
+      "descricao": "Srº {$NOME_CLIENTE}\nTELEFONE: {$TELEFONE}\nCONTA CONTRATO: {$CONTA_CONTRATO}\n\nINFORMADO SOBRE QUITAÇÃO ANUAL DE DÉBITO."
+    },
+    {
+      "titulo": "SEGUNDA VIA DE FATURAS",
+      "subtitulo": "1008 Informações Sobre Segunda Via de Faturas",
+      "descricao": "Srº {$NOME_CLIENTE}\nTELEFONE: {$TELEFONE}\nCONTA CONTRATO: {$CONTA_CONTRATO}\n\nCLIENTE INFORMADO SOBRE 2 VIA DE FATURA QUE PODE SOLICITAR NA AGÊNCIA, SITE OU APP."
+    },
+    {
+      "titulo": "SERVIÇO FORA DO PRAZO",
+      "subtitulo": "1018 Informação Sobre Situação do pedido",
+      "descricao": "Srº {$NOME_CLIENTE}\nTELEFONE: {$TELEFONE}\nCONTA CONTRATO: {$CONTA_CONTRATO}\n\nCLIENTE INFORMADO SOBRE PRAZO DA SUA SOLICITAÇÃO E DIRECIONADO CASO PARA ÁREA SOLICITAR AGILIDADE."
+    },
+    {
+      "titulo": "TROCA DE PADRÃO",
+      "subtitulo": "1022 Informação Troca de Padrão",
+      "descricao": "Srº {$NOME_CLIENTE}\nTELEFONE: {$TELEFONE}\nCONTA CONTRATO: {$CONTA_CONTRATO}\n\nCLIENTE INFORMADO SOBRE TROCA DE MEDIDOR COM / SEM ACRESCIMO, SOBRE OS DOCUMENTOS NECESSÁRIOS E PRAZO 5 DIAS ÚTEIS URBANO / 10 DIAS ÚTEIS RURAL."
+    }
+    ]
+}
