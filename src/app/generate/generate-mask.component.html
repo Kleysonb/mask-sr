@@ -36,6 +36,15 @@
         <label for="Order" class="mt-1">Buscar por Pedido:</label>
         <input [disabled]="orderFocus" id="Order" type="text" class="form-control" [(ngModel)]="modelOrder" [ngbTypeahead]="searchOrder" [inputFormatter]="formatterOrder" [resultTemplate]="rtOrder"/>
       </div>
+
+      <ng-template #rtComplaint let-r="result" let-t="term">
+        <ngb-highlight [result]="r.titulo" [term]="t"></ngb-highlight>
+      </ng-template>
+              
+      <div (click)="focusComplaint()">
+        <label for="Complaint" class="mt-1">Buscar por Reclamação:</label>
+        <input [disabled]="complaintFocus" id="Complaint" type="text" class="form-control" [(ngModel)]="modelComplaint" [ngbTypeahead]="searchComplaint" [inputFormatter]="formatterComplaint" [resultTemplate]="rtComplaint"/>
+      </div>
       <hr>
 
       <div class="row">

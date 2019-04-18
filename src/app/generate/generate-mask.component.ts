@@ -1,4 +1,5 @@
 import dataInfo from './data/informacao.json'
+import dataComplaint from './data/reclamacao.json'
 import { Component, Input, ElementRef, ViewChild } from '@angular/core';
 import {Observable} from 'rxjs';
 import {debounceTime, distinctUntilChanged, map} from 'rxjs/operators';
@@ -35,6 +36,8 @@ export class GenerateMaskComponent  {
   focusInfo = () => {
     this.infoFocus = false;
     this.orderFocus = true;
+    this.complaintFocus = true;
+    this.modelComplaint = {};
     this.modelOrder = {};
   }
 
@@ -57,7 +60,33 @@ export class GenerateMaskComponent  {
   focusOrder = () => {
     this.infoFocus = true;
     this.orderFocus = false;
+    this.complaintFocus = true;
+    this.modelComplaint = {};
     this.modelInfo = {};
+  }
+
+  // --------------------------------------------------------------//
+
+  modelComplaint: any = {};
+  complaintFocus = true;
+  searchComplaint = (text$: Observable<string>) =>
+      text$.pipe(
+        debounceTime(200),
+        map(term => 
+          term.length < 1 ? []
+          : dataComplaint.reclamacao
+          .filter(v => v.titulo.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10)
+        )
+    )
+
+  formatterComplaint = (x: {titulo: string}) => x.titulo;
+
+  focusComplaint = () => {
+    this.infoFocus = true;
+    this.orderFocus = true;
+    this.modelInfo = {};
+    this.modelOrder = {};
+    this.complaintFocus = false;
   }
 
   //------------------------------------------------------//
@@ -77,6 +106,12 @@ export class GenerateMaskComponent  {
       this.copy = this.mask(this.modelOrder.descricao, name, account, phone);
       this.subtitulo = this.modelOrder.subtitulo;
     }
+
+    if(this.modelComplaint.descricao){
+      //console.log("Complaint")
+      this.copy = this.mask(this.modelComplaint.descricao, name, account, phone);
+      this.subtitulo = this.modelComplaint.subtitulo;
+    }
   }
 
   mask(text, name, account, phone): string{    
@@ -92,7 +127,7 @@ export class GenerateMaskComponent  {
       .replace(accountDefault, account)
       .replace(phoneDefault, phone);
 
-    textReplace += ("\n\nTATE" + tateUser + " " + nameUser);
+    textReplace += ("\n\n" + tateUser + " " + nameUser);
   
     return textReplace;
   }
@@ -105,6 +140,7 @@ export class GenerateMaskComponent  {
     this.subtitulo = "";
     this.modelInfo = {};
     this.modelOrder = {};
+    this.modelComplaint = {};
   }
 
    copyInputMessage(inputElement){
