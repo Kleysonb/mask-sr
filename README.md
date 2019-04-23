@@ -23,4 +23,4 @@ Projeto para a empresa 55 soluções feito com Angular7.
 - [Bootstrap Angular](https://ng-bootstrap.github.io/#/home)
 
 # Run
-- [Erro com rotas (Baixar Projeto pelo StackbBlitz](https://angular.io/api/common/APP_BASE_HREF)
+- [Erro com rotas (Baixar Projeto pelo StackbBlitz)](https://angular.io/api/common/APP_BASE_HREF)
