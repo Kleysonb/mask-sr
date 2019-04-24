@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { RegisterUserComponent } from './register/register-user.component';
@@ -22,7 +22,7 @@ const appRoutes: Routes = [
 
 @NgModule({
   imports: [ RouterModule.forRoot(appRoutes),
-  BrowserModule, FormsModule, NgbModule],
+  BrowserModule, FormsModule, NgbModule, ReactiveFormsModule],
   declarations: [ AppComponent, RegisterUserComponent, GenerateMaskComponent, ModalDanosEletricos, ModalNivelTensao ],
   bootstrap: [ AppComponent ],
   entryComponents: [ModalDanosEletricos, ModalNivelTensao]

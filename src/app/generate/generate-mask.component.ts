@@ -1,6 +1,7 @@
 import dataInfo from './data/informacao.json'
-import dataComplaint from './data/reclamacao.json'
-import dataOrder from './data/pedido.json'
+import dataComplaint from './data/reclamacao.json';
+import dataOrder from './data/pedido.json';
+import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Component, Input, ElementRef, ViewChild } from '@angular/core';
 import {Observable} from 'rxjs';
 import {debounceTime, distinctUntilChanged, map} from 'rxjs/operators';
@@ -24,8 +25,8 @@ export class GenerateMaskComponent  {
   modelInfo: any = {};
   infoFocus = false;
   user;
-
-  constructor(private _modalService: NgbModal){
+  
+  constructor(private _modalService: NgbModal, private formBuilder: FormBuilder){
     this.user = JSON.parse(localStorage.getItem("user"));
   }
 
@@ -33,9 +34,12 @@ export class GenerateMaskComponent  {
   nivelTensao = "NIVEL DE TENSÃO";
 
   openModel(name: string) {
-    // DANOS ELÉTRICOS
-    // NIVEL DE TENSÃO
-    this._modalService.open(MODALS[name]);
+    const modalRef = this._modalService.open(MODALS[name]);
+    modalRef.result.then((result) => {
+      console.log(result);
+    }).catch((error) => {
+      console.log(error);
+    });
   }
 
   searchInfo = (text$: Observable<string>) =>
@@ -97,8 +101,6 @@ export class GenerateMaskComponent  {
     )
 
   selectedItem(item){
-  //     modalDanosEletricos: ModalDanosEletricos,
-  //     modalNivelTensao: ModalNivelTensao
     console.log(item.item);
     switch(item.item.titulo){
       case this.nivelTensao:

@@ -1,16 +1,266 @@
 <div class="modal-header">
   <h4 class="modal-title" id="modal-title">Nível de Tensão</h4>
-  <button type="button" class="close" aria-describedby="modal-title" (click)="modal.dismiss('Cross click')">
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
-<div class="modal-body">
-  <p><strong>Are you sure you want to delete <span class="text-primary">"John Doe"</span> profile?</strong></p>
-  <p>All information associated to this user profile will be permanently deleted.
-  <span class="text-danger">This operation can not be undone.</span>
-  </p>
-</div>
-<div class="modal-footer">
-  <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">Cancel</button>
-  <button type="button" class="btn btn-danger" (click)="modal.close('Ok click')">Ok</button>
-</div>
+
+<form [formGroup]="myForm" (ngSubmit)="submitForm()">
+  <div class="modal-body">    
+      <div class="row">
+          <div class="col-sm">
+            
+            <label for="typeahead-basic">QUAL HORÁRIO NORMALMENTE ACONTECE O PROBLEMA:</label>
+            <div class="input-group mb-1">
+              <input formControlName="horaProblema" type="time" class="form-control" aria-label="horaProblema"
+                  aria-describedby="basic-addon1">
+            </div>
+           
+            <label for="typeahead-basic">HOUVE ACRÉSCIMO DE CARGA INSTALADA:</label>
+            <div class="input-group mb-1">
+              <div class="form-check form-check-inline">
+                <label class="form-check-label" for="s1">
+                   <input class="form-check-input" type="radio" name="houveAcrescimo" id="s1" value="SIM"
+                   formControlName="houveAcrescimo">
+                  SIM
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <label class="form-check-label" for="n1">
+                  <input class="form-check-input" type="radio" name="houveAcrescimo" id="n1" value="NÃO"
+                  formControlName="houveAcrescimo">
+                  NÃO
+                </label>
+              </div>
+            </div>
+
+            <label for="typeahead-basic">LÂMPADAS QUEIMAM COM FREQUÊNCIA:</label>
+            <div class="input-group mb-1">
+              <div class="form-check form-check-inline">
+                <label class="form-check-label" for="s2">
+                   <input class="form-check-input" type="radio" name="lampadasQueimam" id="s2" value="SIM"
+                   formControlName="lampadasQueimam">
+                  SIM
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <label class="form-check-label" for="n2">
+                  <input class="form-check-input" type="radio" name="lampadasQueimam" id="n2" value="NÃO"
+                  formControlName="lampadasQueimam">
+                  NÃO
+                </label>
+              </div>
+            </div>
+
+            <label for="typeahead-basic">LÂMPADAS `PISCAM` CONTINUADAMENTE:</label>
+            <div class="input-group mb-1">
+              <div class="form-check form-check-inline">
+                <label class="form-check-label" for="s3">
+                   <input class="form-check-input" type="radio" name="lampadasPiscam" id="s3" value="SIM"
+                   formControlName="lampadasPiscam">
+                  SIM
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <label class="form-check-label" for="n3">
+                  <input class="form-check-input" type="radio" name="lampadasPiscam" id="n3" value="NÃO"
+                  formControlName="lampadasPiscam">
+                  NÃO
+                </label>
+              </div>
+            </div>
+
+            <label for="typeahead-basic">LÂMPADAS PERDEM A LUMINOSIDADE:</label>
+            <div class="input-group mb-1">
+              <div class="form-check form-check-inline">
+                <label class="form-check-label" for="s4">
+                   <input class="form-check-input" type="radio" name="lampadasFracas" id="s4" value="SIM"
+                   formControlName="lampadasFracas">
+                  SIM
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <label class="form-check-label" for="n4">
+                  <input class="form-check-input" type="radio" name="lampadasFracas" id="n4" value="NÃO"
+                  formControlName="lampadasFracas">
+                  NÃO
+                </label>
+              </div>
+            </div>
+
+            <label for="typeahead-basic">ELETRODOMÉSTICOS SE AUTO DESLIGAM:</label>
+            <div class="input-group mb-1">
+              <div class="form-check form-check-inline">
+                <label class="form-check-label" for="s5">
+                   <input class="form-check-input" type="radio" name="autoDesligam" id="s5" value="SIM"
+                   formControlName="autoDesligam">
+                  SIM
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <label class="form-check-label" for="n5">
+                  <input class="form-check-input" type="radio" name="autoDesligam" id="n5" value="NÃO"
+                  formControlName="autoDesligam">
+                  NÃO
+                </label>
+              </div>
+            </div>
+
+            <label for="typeahead-basic">OS VIZINHOS TEM PROBLEMA SEMELHANTE:</label>
+            <div class="input-group mb-1">
+              <div class="form-check form-check-inline">
+                <label class="form-check-label" for="s6">
+                   <input class="form-check-input" type="radio" name="problemaVizinhos" id="s6" value="SIM"
+                   formControlName="problemaVizinhos">
+                  SIM
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <label class="form-check-label" for="n6">
+                  <input class="form-check-input" type="radio" name="problemaVizinhos" id="n6" value="NÃO"
+                  formControlName="problemaVizinhos">
+                  NÃO
+                </label>
+              </div>
+            </div>
+            
+            <label for="typeahead-basic">EXISTE VIZINHO QUE UTILIZA MOTOR, SOLDA, RAIO-X:</label>
+            <div class="input-group mb-1">
+              <div class="form-check form-check-inline">
+                <label class="form-check-label" for="s7">
+                   <input class="form-check-input" type="radio" name="vizinhoUtiliza" id="s7" value="SIM"
+                   formControlName="vizinhoUtiliza">
+                  SIM
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <label class="form-check-label" for="n7">
+                  <input class="form-check-input" type="radio" name="vizinhoUtiliza" id="n7" value="NÃO"
+                  formControlName="vizinhoUtiliza">
+                  NÃO
+                </label>
+              </div>
+            </div>
+            
+            <label for="typeahead-basic">A ENERGIA ESTÁ OSCILANDO:</label>
+            <div class="input-group mb-1">
+              <div class="form-check form-check-inline">
+                <label class="form-check-label" for="s8">
+                   <input class="form-check-input" type="radio" name="energiaOscilando" id="s8" value="FORTE"
+                   formControlName="energiaOscilando">
+                  FORTE
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <label class="form-check-label" for="n8">
+                  <input class="form-check-input" type="radio" name="energiaOscilando" id="n8" value="FRACA"
+                  formControlName="energiaOscilando">
+                  FRACA
+                </label>
+              </div>
+            </div>
+            
+            <label for="typeahead-basic">NESTE MOMENTO A INSTALAÇÃO ESTÁ SEM ENERGIA:</label>
+            <div class="input-group mb-1">
+              <div class="form-check form-check-inline">
+                <label class="form-check-label" for="s9">
+                   <input class="form-check-input" type="radio" name="semEnergia" id="s9" value="SIM"
+                   formControlName="semEnergia">
+                  SIM
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <label class="form-check-label" for="n9">
+                  <input class="form-check-input" type="radio" name="semEnergia" id="n9" value="NÃO"
+                  formControlName="semEnergia">
+                  NÃO
+                </label>
+              </div>
+            </div>
+            
+            <label for="typeahead-basic">PONTO DE REFERÊNCIA:</label>
+            <div class="input-group mb-1">
+              <div class="form-check form-check-inline">
+                <label class="form-check-label" for="s10">
+                   <input class="form-check-input" type="radio" name="pontoReferencia" id="s10" value="SIM"
+                   formControlName="pontoReferencia">
+                  SIM
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <label class="form-check-label" for="n10">
+                  <input class="form-check-input" type="radio" name="pontoReferencia" id="n10" value="NÃO"
+                  formControlName="pontoReferencia">
+                  NÃO
+                </label>
+              </div>
+            </div>
+
+            <br>
+            
+            <div class="input-group mb-1">
+              <input formControlName="solucao" type="text" class="form-control" placeholder="SOLUÇÃO PRETENDIDA" aria-label="solucao"
+                  aria-describedby="basic-addon1">
+            </div>
+
+            <hr>
+
+            <label for="typeahead-basic">Solicitante Deseja Receber Resposta da Solicitação por:</label>
+            <div class="input-group mb-1">
+              <div class="form-check form-check-inline">
+                <label class="form-check-label" for="tel1">
+                   <input class="form-check-input" type="radio" name="receberResposta" id="tel1" value="TELEFONE"
+                   formControlName="receberResposta">
+                  TELEFONE
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <label class="form-check-label" for="email1">
+                  <input class="form-check-input" type="radio" name="receberResposta" id="email1" value="E-MAIL"
+                  formControlName="receberResposta">
+                  E-MAIL
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <label class="form-check-label" for="carta1">
+                  <input class="form-check-input" type="radio" name="receberResposta" id="carta1" value="CARTA"
+                  formControlName="receberResposta">
+                  CARTA
+                </label>
+              </div>
+            </div>
+
+            <label for="typeahead-basic">Autorizou Terceiros para Receber a Resposta:</label>
+            <div class="input-group mb-1">
+              <div class="form-check form-check-inline">
+                <label class="form-check-label" for="s7">
+                   <input class="form-check-input" type="radio" name="receberRespostaTerceiros" id="s7" value="SIM"
+                   formControlName="receberRespostaTerceiros">
+                  SIM
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <label class="form-check-label" for="n7">
+                  <input class="form-check-input" type="radio" name="receberRespostaTerceiros" id="n7" value="NÃO"
+                  formControlName="receberRespostaTerceiros">
+                  NÃO
+                </label>
+              </div>
+            </div>
+
+            <div class="input-group mb-1">
+              <input formControlName="terceiro" type="text" class="form-control" placeholder="SE SIM, QUAL?" aria-label="terceiro"
+                  aria-describedby="basic-addon1">
+            </div>
+
+        </div>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button class="btn btn-success"
+        [disabled]="!myForm.valid">
+        GERAR
+      </button>
+  </div>
+</form>

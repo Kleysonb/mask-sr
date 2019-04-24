@@ -1,14 +1,203 @@
 <div class="modal-header">
   <h4 class="modal-title" id="modal-title">Danos Elétricos</h4>
-  <button type="button" class="close" aria-describedby="modal-title" (click)="modal.dismiss('Cross click')">
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
-<div class="modal-body">
-  <p><strong>Are you sure you want to delete <span class="text-primary">"John Doe"</span> profile?</strong></p>
-  <p>entradas</p>
-</div>
-<div class="modal-footer">
-  <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">Cancelar</button>
-  <button type="button" class="btn btn-danger" (click)="modal.close('Ok click')">GERAR</button>
-</div>
+
+<form [formGroup]="myForm" (ngSubmit)="submitForm()">
+  <div class="modal-body">    
+      <div class="row">
+          <div class="col-sm">
+            <p>DECLARA DANOS EM SEUS APARELHOS ELÉTRICOS</p>
+            
+            <label for="typeahead-basic">Data da Queima:</label>
+            <div class="input-group mb-1">
+              <input formControlName="dataqueima" type="date" class="form-control" placeholder="DATA DA QUEIMA" aria-label="dataqueima" aria-describedby="basic-addon1">
+            </div>
+            
+            <label for="typeahead-basic">Horário da Queima:</label>
+            <div class="input-group mb-1">
+              <input formControlName="horaqueima" type="time" class="form-control" placeholder="HORÁRIO DA QUEIMA" aria-label="horaqueima"
+                  aria-describedby="basic-addon1">
+            </div>
+
+            <div class="input-group mb-1">
+              <input formControlName="aparelho" type="text" class="form-control" placeholder="APARELHO" aria-label="aparelho"
+                  aria-describedby="basic-addon1">
+            </div>
+
+            <div class="input-group mb-1">
+              <input formControlName="marca" type="text" class="form-control" placeholder="MARCA" aria-label="marca"
+                  aria-describedby="basic-addon1">
+            </div>
+
+            <div class="input-group mb-1">
+              <input formControlName="modelo" type="text" class="form-control" placeholder="MODELO" aria-label="modelo"
+                  aria-describedby="basic-addon1">
+            </div>
+
+            <div class="input-group mb-1">
+              <input formControlName="tempouso" type="text" class="form-control" placeholder="TEMPO DE USO" aria-label="tempouso"
+                  aria-describedby="basic-addon1">
+            </div>
+
+            <label for="typeahead-basic">Data do Agendamento da Vistoria (CELPA):</label>
+            <div class="input-group mb-1">
+              <input formControlName="dataagendamento" type="date" class="form-control" placeholder="DATA DO AGENDAMENTO DA VISTORIA (CELPA)" aria-label="dataagendamento"
+                  aria-describedby="basic-addon1">
+            </div>
+
+            <hr>
+           
+            <label for="typeahead-basic">ANTENA PARABÓLICA:</label>
+            <div class="input-group mb-1">
+              <div class="form-check form-check-inline">
+                <label class="form-check-label" for="s1">
+                   <input class="form-check-input" type="radio" name="antenaParabolica" id="s1" value="SIM"
+                   formControlName="antenaParabolica">
+                  SIM
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <label class="form-check-label" for="n1">
+                  <input class="form-check-input" type="radio" name="antenaParabolica" id="n1" value="NÃO"
+                  formControlName="antenaParabolica">
+                  NÃO
+                </label>
+              </div>
+            </div>
+
+            <label for="typeahead-basic">TELEFONE FIXO:</label>
+            <div class="input-group mb-1">
+              <div class="form-check form-check-inline">
+                <label class="form-check-label" for="s2">
+                   <input class="form-check-input" type="radio" name="telefoneFixo" id="s2" value="SIM"
+                   formControlName="telefoneFixo">
+                  SIM
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <label class="form-check-label" for="n2">
+                  <input class="form-check-input" type="radio" name="telefoneFixo" id="n2" value="NÃO"
+                  formControlName="telefoneFixo">
+                  NÃO
+                </label>
+              </div>
+            </div>
+
+            <label for="typeahead-basic">ESTAVA CHOVENDO:</label>
+            <div class="input-group mb-1">
+              <div class="form-check form-check-inline">
+                <label class="form-check-label" for="s3">
+                   <input class="form-check-input" type="radio" name="estavaChovendo" id="s3" value="SIM"
+                   formControlName="estavaChovendo">
+                  SIM
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <label class="form-check-label" for="n3">
+                  <input class="form-check-input" type="radio" name="estavaChovendo" id="n3" value="NÃO"
+                  formControlName="estavaChovendo">
+                  NÃO
+                </label>
+              </div>
+            </div>
+
+            <label for="typeahead-basic">HAVIA EQUIPE TÉCNICA NO LOCAL:</label>
+            <div class="input-group mb-1">
+              <div class="form-check form-check-inline">
+                <label class="form-check-label" for="s4">
+                   <input class="form-check-input" type="radio" name="equipeTecnica" id="s4" value="SIM"
+                   formControlName="equipeTecnica">
+                  SIM
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <label class="form-check-label" for="n4">
+                  <input class="form-check-input" type="radio" name="equipeTecnica" id="n4" value="NÃO"
+                  formControlName="equipeTecnica">
+                  NÃO
+                </label>
+              </div>
+            </div>
+
+            <label for="typeahead-basic">ATINGIU OUTRAS RESIDÊNCIAS:</label>
+            <div class="input-group mb-1">
+              <div class="form-check form-check-inline">
+                <label class="form-check-label" for="s5">
+                   <input class="form-check-input" type="radio" name="outrasResidencias" id="s5" value="SIM"
+                   formControlName="outrasResidencias">
+                  SIM
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <label class="form-check-label" for="n5">
+                  <input class="form-check-input" type="radio" name="outrasResidencias" id="n5" value="NÃO"
+                  formControlName="outrasResidencias">
+                  NÃO
+                </label>
+              </div>
+            </div>
+
+            <hr>
+
+            <label for="typeahead-basic">Solicitante Deseja Receber Resposta da Solicitação por:</label>
+            <div class="input-group mb-1">
+              <div class="form-check form-check-inline">
+                <label class="form-check-label" for="tel1">
+                   <input class="form-check-input" type="radio" name="receberResposta" id="tel1" value="TELEFONE"
+                   formControlName="receberResposta">
+                  TELEFONE
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <label class="form-check-label" for="email1">
+                  <input class="form-check-input" type="radio" name="receberResposta" id="email1" value="E-MAIL"
+                  formControlName="receberResposta">
+                  E-MAIL
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <label class="form-check-label" for="carta1">
+                  <input class="form-check-input" type="radio" name="receberResposta" id="carta1" value="CARTA"
+                  formControlName="receberResposta">
+                  CARTA
+                </label>
+              </div>
+            </div>
+
+            <label for="typeahead-basic">Autorizou Terceiros para Receber a Resposta:</label>
+            <div class="input-group mb-1">
+              <div class="form-check form-check-inline">
+                <label class="form-check-label" for="s7">
+                   <input class="form-check-input" type="radio" name="receberRespostaTerceiros" id="s7" value="SIM"
+                   formControlName="receberRespostaTerceiros">
+                  SIM
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <label class="form-check-label" for="n7">
+                  <input class="form-check-input" type="radio" name="receberRespostaTerceiros" id="n7" value="NÃO"
+                  formControlName="receberRespostaTerceiros">
+                  NÃO
+                </label>
+              </div>
+            </div>
+
+            <div class="input-group mb-1">
+              <input formControlName="terceiro" type="text" class="form-control" placeholder="SE SIM, QUAL?" aria-label="terceiro"
+                  aria-describedby="basic-addon1">
+            </div>
+
+        </div>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button class="btn btn-success"
+        [disabled]="!myForm.valid">
+        GERAR
+      </button>
+  </div>
+</form>
