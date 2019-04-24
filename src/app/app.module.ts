@@ -7,6 +7,9 @@ import { RegisterUserComponent } from './register/register-user.component';
 
 import { GenerateMaskComponent } from './generate/generate-mask.component';
 
+import { ModalDanosEletricos } from './generate/modal-danos-eletricos/modal-danos-eletricos.component';
+import { ModalNivelTensao } from './generate/modal-nivel-tensao/modal-nivel-tensao.component';
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { RouterModule, Routes } from '@angular/router';
@@ -18,11 +21,10 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
-  imports:      [ RouterModule.forRoot(
-      appRoutes,
-    ),
-    BrowserModule, FormsModule, NgbModule],
-  declarations: [ AppComponent, RegisterUserComponent, GenerateMaskComponent ],
-  bootstrap:    [ AppComponent ]
+  imports: [ RouterModule.forRoot(appRoutes),
+  BrowserModule, FormsModule, NgbModule],
+  declarations: [ AppComponent, RegisterUserComponent, GenerateMaskComponent, ModalDanosEletricos, ModalNivelTensao ],
+  bootstrap: [ AppComponent ],
+  entryComponents: [ModalDanosEletricos, ModalNivelTensao]
 })
 export class AppModule { }

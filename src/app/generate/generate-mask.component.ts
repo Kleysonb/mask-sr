@@ -1,8 +1,17 @@
 import dataInfo from './data/informacao.json'
 import dataComplaint from './data/reclamacao.json'
+import dataOrder from './data/pedido.json'
 import { Component, Input, ElementRef, ViewChild } from '@angular/core';
 import {Observable} from 'rxjs';
 import {debounceTime, distinctUntilChanged, map} from 'rxjs/operators';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalDanosEletricos } from './modal-danos-eletricos/modal-danos-eletricos.component';
+import { ModalNivelTensao } from './modal-nivel-tensao/modal-nivel-tensao.component';
+
+const MODALS = {
+  modalDanosEletricos: ModalDanosEletricos,
+  modalNivelTensao: ModalNivelTensao
+};
 
 @Component({
   selector: 'generate-mask',
@@ -14,11 +23,19 @@ export class GenerateMaskComponent  {
   @ViewChild('info') inputInfo: ElementRef;  
   modelInfo: any = {};
   infoFocus = false;
-
   user;
 
-  constructor(){
+  constructor(private _modalService: NgbModal){
     this.user = JSON.parse(localStorage.getItem("user"));
+  }
+
+  danosEletricos = "DANOS ELÉTRICOS";
+  nivelTensao = "NIVEL DE TENSÃO";
+
+  openModel(name: string) {
+    // DANOS ELÉTRICOS
+    // NIVEL DE TENSÃO
+    this._modalService.open(MODALS[name]);
   }
 
   searchInfo = (text$: Observable<string>) =>
@@ -50,7 +67,7 @@ export class GenerateMaskComponent  {
         debounceTime(200),
         map(term => 
           term.length < 1 ? []
-          : dataInfo.informacao
+          : dataOrder.pedido
           .filter(v => v.titulo.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10)
         )
     )
@@ -78,6 +95,20 @@ export class GenerateMaskComponent  {
           .filter(v => v.titulo.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10)
         )
     )
+
+  selectedItem(item){
+  //     modalDanosEletricos: ModalDanosEletricos,
+  //     modalNivelTensao: ModalNivelTensao
+    console.log(item.item);
+    switch(item.item.titulo){
+      case this.nivelTensao:
+        this.openModel('modalNivelTensao');
+        break;
+      case this.danosEletricos:
+        this.openModel('modalDanosEletricos');
+        break;
+    }
+  }
 
   formatterComplaint = (x: {titulo: string}) => x.titulo;
 
