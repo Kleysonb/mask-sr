@@ -146,11 +146,19 @@ export class GenerateMaskComponent  {
     maskDefault['AUTORIZOU_TERCEIROS'] = "{$AUTORIZOU_TERCEIROS}";
     maskDefault['TERCEIRO'] = "{$TERCEIRO}";
 
+    dataModal['DATA_QUEIMA'] = this.convertDate(dataModal['DATA_QUEIMA']);
+    dataModal['DATA_AGENDAMENTO'] = this.convertDate(dataModal['DATA_AGENDAMENTO']);
     let textReplace = text;
     for(let attribute in maskDefault){
       textReplace = textReplace.replace(maskDefault[attribute], dataModal[attribute]);
     }
     return textReplace;
+  }
+
+  convertDate(date): string {
+    let arrayDate = date.split("-");
+    let newDate = `${arrayDate[2]}/${arrayDate[1]}/${arrayDate[0]}`;
+    return newDate;
   }
 
   maskNivelTensao(text, dataModal): string{

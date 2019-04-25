@@ -14,6 +14,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { RouterModule, Routes } from '@angular/router';
 
+import {NgxMaskModule} from 'ngx-mask'
+
 const appRoutes: Routes = [
   { path: '', component: RegisterUserComponent },
   { path: 'register', component: RegisterUserComponent },
@@ -22,7 +24,7 @@ const appRoutes: Routes = [
 
 @NgModule({
   imports: [ RouterModule.forRoot(appRoutes),
-  BrowserModule, FormsModule, NgbModule, ReactiveFormsModule],
+  BrowserModule, FormsModule, NgbModule, ReactiveFormsModule, NgxMaskModule.forRoot()],
   declarations: [ AppComponent, RegisterUserComponent, GenerateMaskComponent, ModalDanosEletricos, ModalNivelTensao ],
   bootstrap: [ AppComponent ],
   entryComponents: [ModalDanosEletricos, ModalNivelTensao]
