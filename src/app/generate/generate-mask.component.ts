@@ -33,10 +33,11 @@ export class GenerateMaskComponent  {
   danosEletricos = "DANOS ELÉTRICOS";
   nivelTensao = "NIVEL DE TENSÃO";
 
-  openModel(name: string) {
-    const modalRef = this._modalService.open(MODALS[name]);
-    modalRef.result.then((result) => {
-      console.log(result);
+  openModel(typeModal: string, data) {
+    const modalRef = this._modalService.open(MODALS[typeModal]);
+    modalRef.result.then((dataModal) => {
+      console.log(dataModal);
+      this.applyMaskModal(typeModal, dataModal, data);
     }).catch((error) => {
       console.log(error);
     });
@@ -100,16 +101,82 @@ export class GenerateMaskComponent  {
         )
     )
 
-  selectedItem(item){
+  selectedItem(item, data){
     console.log(item.item);
+    console.log(data)
     switch(item.item.titulo){
       case this.nivelTensao:
-        this.openModel('modalNivelTensao');
+        this.openModel('modalNivelTensao', data);
         break;
       case this.danosEletricos:
-        this.openModel('modalDanosEletricos');
+        this.openModel('modalDanosEletricos', data);
         break;
     }
+  }
+
+  applyMaskModal(typeModal: string, dataModal, data){
+    let maskTemp = this.mask(this.modelComplaint.descricao, data.name, data.account, data.phone);
+    switch(typeModal){
+      case 'modalNivelTensao':
+        this.copy = this.maskNivelTensao(maskTemp, dataModal);
+        break;
+      case 'modalDanosEletricos':
+      this.copy = this.maskDanosEletricos(maskTemp, dataModal);
+        break;
+    }
+    this.subtitulo = this.modelComplaint.subtitulo;
+  }
+
+  maskDanosEletricos(text, dataModal): string{
+    let maskDefault = {};
+    maskDefault['DATA_QUEIMA'] = "{$DATA_QUEIMA}";
+    maskDefault['HORA_QUEIMA'] = "{$HORA_QUEIMA}";
+    maskDefault['APARELHO'] = "{$APARELHO}";
+    maskDefault['MARCA'] = "{$MARCA}";
+    maskDefault['MODELO'] = "{$MODELO}";
+    maskDefault['TEMPO_USO'] = "{$TEMPO_USO}";
+    maskDefault['DATA_AGENDAMENTO'] = "{$DATA_AGENDAMENTO}";
+    maskDefault['ANTENA_PARABOLICA'] = "{$ANTENA_PARABOLICA}";
+    maskDefault['TELEFONE_FIXO'] = "{$TELEFONE_FIXO}";
+    maskDefault['ESTAVA_CHOVENDO'] = "{$ESTAVA_CHOVENDO}";
+    maskDefault['HAVIA_EQUIPE'] = "{$HAVIA_EQUIPE}";
+    maskDefault['OUTRA_RESIDENCIA'] = "{$OUTRA_RESIDENCIA}";
+    maskDefault['SOLUCAO_PRETENDIDA'] = "{$SOLUCAO_PRETENDIDA}";
+    maskDefault['RECEBER_RESPOSTA'] = "{$RECEBER_RESPOSTA}";
+    maskDefault['AUTORIZOU_TERCEIROS'] = "{$AUTORIZOU_TERCEIROS}";
+    maskDefault['TERCEIRO'] = "{$TERCEIRO}";
+
+    let textReplace = text;
+    for(let attribute in maskDefault){
+      textReplace = textReplace.replace(maskDefault[attribute], dataModal[attribute]);
+    }
+    return textReplace;
+  }
+
+  maskNivelTensao(text, dataModal): string{
+    let maskDefault = {};
+    maskDefault['HORARIO_PROBLEMA'] = "{$HORARIO_PROBLEMA}";
+    maskDefault['ACRESCIMO_CARGA'] = "{$ACRESCIMO_CARGA}";
+    maskDefault['LAMPADAS_QUEIMAM'] = "{$LAMPADAS_QUEIMAM}";
+    maskDefault['LAMPADAS_PISCAM'] = "{$LAMPADAS_PISCAM}";
+    maskDefault['LAMPADAS_FRACAS'] = "{$LAMPADAS_FRACAS}";
+    maskDefault['TEMPO_USO'] = "{$TEMPO_USO}";
+    maskDefault['AUTO_DESLIGAM'] = "{$AUTO_DESLIGAM}";
+    maskDefault['PROBLEMA_VIZINHOS'] = "{$PROBLEMA_VIZINHOS}";
+    maskDefault['VIZINHO_UTILIZA'] = "{$VIZINHO_UTILIZA}";
+    maskDefault['ENERGIA_OSCILANDO'] = "{$ENERGIA_OSCILANDO}";
+    maskDefault['SEM_ENERGIA'] = "{$SEM_ENERGIA}";
+    maskDefault['PONTO_REFERENCIA'] = "{$PONTO_REFERENCIA}";
+    maskDefault['SOLUCAO_PRETENDIDA'] = "{$SOLUCAO_PRETENDIDA}";
+    maskDefault['RECEBER_RESPOSTA'] = "{$RECEBER_RESPOSTA}";
+    maskDefault['AUTORIZOU_TERCEIROS'] = "{$AUTORIZOU_TERCEIROS}";
+    maskDefault['TERCEIRO'] = "{$TERCEIRO}";
+
+    let textReplace = text;
+    for(let attribute in maskDefault){
+      textReplace = textReplace.replace(maskDefault[attribute], dataModal[attribute]);
+    }
+    return textReplace;
   }
 
   formatterComplaint = (x: {titulo: string}) => x.titulo;

@@ -13,56 +13,56 @@
             
             <label for="typeahead-basic">Data da Queima:</label>
             <div class="input-group mb-1">
-              <input formControlName="dataqueima" type="date" class="form-control" placeholder="DATA DA QUEIMA" aria-label="dataqueima" aria-describedby="basic-addon1">
+              <input formControlName="DATA_QUEIMA" type="date" class="form-control" placeholder="DATA DA QUEIMA" aria-label="dataqueima" aria-describedby="basic-addon1">
             </div>
             
             <label for="typeahead-basic">Horário da Queima:</label>
             <div class="input-group mb-1">
-              <input formControlName="horaqueima" type="time" class="form-control" placeholder="HORÁRIO DA QUEIMA" aria-label="horaqueima"
+              <input formControlName="HORA_QUEIMA" type="time" class="form-control" placeholder="HORÁRIO DA QUEIMA" aria-label="horaqueima"
                   aria-describedby="basic-addon1">
             </div>
 
             <div class="input-group mb-1">
-              <input formControlName="aparelho" type="text" class="form-control" placeholder="APARELHO" aria-label="aparelho"
+              <input formControlName="APARELHO" type="text" class="form-control" placeholder="APARELHOS. EX: Geladeira, Televisão" aria-label="aparelho"
                   aria-describedby="basic-addon1">
             </div>
 
             <div class="input-group mb-1">
-              <input formControlName="marca" type="text" class="form-control" placeholder="MARCA" aria-label="marca"
+              <input formControlName="MARCA" type="text" class="form-control" placeholder="MARCA. EX: Brastemp, Consul" aria-label="marca"
                   aria-describedby="basic-addon1">
             </div>
 
             <div class="input-group mb-1">
-              <input formControlName="modelo" type="text" class="form-control" placeholder="MODELO" aria-label="modelo"
+              <input formControlName="MODELO" type="text" class="form-control" placeholder="MODELO" aria-label="modelo"
                   aria-describedby="basic-addon1">
             </div>
 
             <div class="input-group mb-1">
-              <input formControlName="tempouso" type="text" class="form-control" placeholder="TEMPO DE USO" aria-label="tempouso"
+              <input formControlName="TEMPO_USO" type="text" class="form-control" placeholder="TEMPO DE USO" aria-label="tempouso"
                   aria-describedby="basic-addon1">
             </div>
 
             <label for="typeahead-basic">Data do Agendamento da Vistoria (CELPA):</label>
             <div class="input-group mb-1">
-              <input formControlName="dataagendamento" type="date" class="form-control" placeholder="DATA DO AGENDAMENTO DA VISTORIA (CELPA)" aria-label="dataagendamento"
+              <input formControlName="DATA_AGENDAMENTO" type="date" class="form-control" placeholder="DATA DO AGENDAMENTO DA VISTORIA (CELPA)" aria-label="dataagendamento"
                   aria-describedby="basic-addon1">
             </div>
-
+ 
             <hr>
            
             <label for="typeahead-basic">ANTENA PARABÓLICA:</label>
             <div class="input-group mb-1">
               <div class="form-check form-check-inline">
                 <label class="form-check-label" for="s1">
-                   <input class="form-check-input" type="radio" name="antenaParabolica" id="s1" value="SIM"
-                   formControlName="antenaParabolica">
+                   <input class="form-check-input" type="radio" name="ANTENA_PARABOLICA" id="s1" value="SIM"
+                   formControlName="ANTENA_PARABOLICA">
                   SIM
                 </label>
               </div>
               <div class="form-check form-check-inline">
                 <label class="form-check-label" for="n1">
-                  <input class="form-check-input" type="radio" name="antenaParabolica" id="n1" value="NÃO"
-                  formControlName="antenaParabolica">
+                  <input class="form-check-input" type="radio" name="ANTENA_PARABOLICA" id="n1" value="NÃO"
+                  formControlName="ANTENA_PARABOLICA">
                   NÃO
                 </label>
               </div>
@@ -72,15 +72,15 @@
             <div class="input-group mb-1">
               <div class="form-check form-check-inline">
                 <label class="form-check-label" for="s2">
-                   <input class="form-check-input" type="radio" name="telefoneFixo" id="s2" value="SIM"
-                   formControlName="telefoneFixo">
+                   <input class="form-check-input" type="radio" name="TELEFONE_FIXO" id="s2" value="SIM"
+                   formControlName="TELEFONE_FIXO">
                   SIM
                 </label>
               </div>
               <div class="form-check form-check-inline">
                 <label class="form-check-label" for="n2">
-                  <input class="form-check-input" type="radio" name="telefoneFixo" id="n2" value="NÃO"
-                  formControlName="telefoneFixo">
+                  <input class="form-check-input" type="radio" name="TELEFONE_FIXO" id="n2" value="NÃO"
+                  formControlName="TELEFONE_FIXO">
                   NÃO
                 </label>
               </div>
@@ -90,15 +90,15 @@
             <div class="input-group mb-1">
               <div class="form-check form-check-inline">
                 <label class="form-check-label" for="s3">
-                   <input class="form-check-input" type="radio" name="estavaChovendo" id="s3" value="SIM"
-                   formControlName="estavaChovendo">
+                   <input class="form-check-input" type="radio" name="ESTAVA_CHOVENDO" id="s3" value="SIM"
+                   formControlName="ESTAVA_CHOVENDO">
                   SIM
                 </label>
               </div>
               <div class="form-check form-check-inline">
                 <label class="form-check-label" for="n3">
-                  <input class="form-check-input" type="radio" name="estavaChovendo" id="n3" value="NÃO"
-                  formControlName="estavaChovendo">
+                  <input class="form-check-input" type="radio" name="ESTAVA_CHOVENDO" id="n3" value="NÃO"
+                  formControlName="ESTAVA_CHOVENDO">
                   NÃO
                 </label>
               </div>
@@ -108,15 +108,15 @@
             <div class="input-group mb-1">
               <div class="form-check form-check-inline">
                 <label class="form-check-label" for="s4">
-                   <input class="form-check-input" type="radio" name="equipeTecnica" id="s4" value="SIM"
-                   formControlName="equipeTecnica">
+                   <input class="form-check-input" type="radio" name="HAVIA_EQUIPE" id="s4" value="SIM"
+                   formControlName="HAVIA_EQUIPE">
                   SIM
                 </label>
               </div>
               <div class="form-check form-check-inline">
                 <label class="form-check-label" for="n4">
-                  <input class="form-check-input" type="radio" name="equipeTecnica" id="n4" value="NÃO"
-                  formControlName="equipeTecnica">
+                  <input class="form-check-input" type="radio" name="HAVIA_EQUIPE" id="n4" value="NÃO"
+                  formControlName="HAVIA_EQUIPE">
                   NÃO
                 </label>
               </div>
@@ -126,19 +126,27 @@
             <div class="input-group mb-1">
               <div class="form-check form-check-inline">
                 <label class="form-check-label" for="s5">
-                   <input class="form-check-input" type="radio" name="outrasResidencias" id="s5" value="SIM"
-                   formControlName="outrasResidencias">
+                   <input class="form-check-input" type="radio" name="OUTRA_RESIDENCIA" id="s5" value="SIM"
+                   formControlName="OUTRA_RESIDENCIA">
                   SIM
                 </label>
               </div>
               <div class="form-check form-check-inline">
                 <label class="form-check-label" for="n5">
-                  <input class="form-check-input" type="radio" name="outrasResidencias" id="n5" value="NÃO"
-                  formControlName="outrasResidencias">
+                  <input class="form-check-input" type="radio" name="OUTRA_RESIDENCIA" id="n5" value="NÃO"
+                  formControlName="OUTRA_RESIDENCIA">
                   NÃO
                 </label>
               </div>
             </div>
+
+            <br>
+            
+            <div class="input-group mb-1">
+              <input formControlName="SOLUCAO_PRETENDIDA" type="text" class="form-control" placeholder="SOLUÇÃO PRETENDIDA" aria-label="solucao"
+                  aria-describedby="basic-addon1">
+            </div>
+
 
             <hr>
 
@@ -146,22 +154,22 @@
             <div class="input-group mb-1">
               <div class="form-check form-check-inline">
                 <label class="form-check-label" for="tel1">
-                   <input class="form-check-input" type="radio" name="receberResposta" id="tel1" value="TELEFONE"
-                   formControlName="receberResposta">
+                   <input class="form-check-input" type="radio" name="RECEBER_RESPOSTA" id="tel1" value="TELEFONE"
+                   formControlName="RECEBER_RESPOSTA">
                   TELEFONE
                 </label>
               </div>
               <div class="form-check form-check-inline">
                 <label class="form-check-label" for="email1">
-                  <input class="form-check-input" type="radio" name="receberResposta" id="email1" value="E-MAIL"
-                  formControlName="receberResposta">
+                  <input class="form-check-input" type="radio" name="RECEBER_RESPOSTA" id="email1" value="E-MAIL"
+                  formControlName="RECEBER_RESPOSTA">
                   E-MAIL
                 </label>
               </div>
               <div class="form-check form-check-inline">
                 <label class="form-check-label" for="carta1">
-                  <input class="form-check-input" type="radio" name="receberResposta" id="carta1" value="CARTA"
-                  formControlName="receberResposta">
+                  <input class="form-check-input" type="radio" name="RECEBER_RESPOSTA" id="carta1" value="CARTA"
+                  formControlName="RECEBER_RESPOSTA">
                   CARTA
                 </label>
               </div>
@@ -171,22 +179,22 @@
             <div class="input-group mb-1">
               <div class="form-check form-check-inline">
                 <label class="form-check-label" for="s7">
-                   <input class="form-check-input" type="radio" name="receberRespostaTerceiros" id="s7" value="SIM"
-                   formControlName="receberRespostaTerceiros">
+                   <input class="form-check-input" type="radio" name="AUTORIZOU_TERCEIROS" id="s7" value="SIM"
+                   formControlName="AUTORIZOU_TERCEIROS">
                   SIM
                 </label>
               </div>
               <div class="form-check form-check-inline">
                 <label class="form-check-label" for="n7">
-                  <input class="form-check-input" type="radio" name="receberRespostaTerceiros" id="n7" value="NÃO"
-                  formControlName="receberRespostaTerceiros">
+                  <input class="form-check-input" type="radio" name="AUTORIZOU_TERCEIROS" id="n7" value="NÃO"
+                  formControlName="AUTORIZOU_TERCEIROS">
                   NÃO
                 </label>
               </div>
             </div>
 
             <div class="input-group mb-1">
-              <input formControlName="terceiro" type="text" class="form-control" placeholder="SE SIM, QUAL?" aria-label="terceiro"
+              <input formControlName="TERCEIRO" type="text" class="form-control" placeholder="SE SIM, QUEM?" aria-label="TERCEIRO"
                   aria-describedby="basic-addon1">
             </div>
 

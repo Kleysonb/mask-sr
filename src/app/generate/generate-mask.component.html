@@ -43,7 +43,7 @@
               
       <div (click)="focusComplaint()">
         <label for="Complaint" class="mt-1">Buscar por Reclamação:</label>
-        <input [disabled]="complaintFocus" id="Complaint" type="text" class="form-control" [(ngModel)]="modelComplaint" [ngbTypeahead]="searchComplaint" [inputFormatter]="formatterComplaint" (selectItem)="selectedItem($event)" [resultTemplate]="rtComplaint"/>
+        <input [disabled]="complaintFocus" id="Complaint" type="text" class="form-control" [(ngModel)]="modelComplaint" [ngbTypeahead]="searchComplaint" [inputFormatter]="formatterComplaint" (selectItem)="selectedItem($event, {name: name.value, account: account.value, phone: phone.value})" [resultTemplate]="rtComplaint"/>
       </div>
       <hr>
 

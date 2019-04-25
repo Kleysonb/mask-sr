@@ -15,21 +15,22 @@ export class ModalDanosEletricos {
   
   private createForm() {
     this.myForm = this.formBuilder.group({
-      dataqueima: '',
-      horaqueima: '',
-      aparelho: '',
-      marca: '',
-      modelo: '',
-      tempouso: '',
-      dataagendamento: '',
-      antenaParabolica: [''],
-      telefoneFixo: [''],
-      estavaChovendo: [''],
-      equipeTecnica: [''],
-      outrasResidencias: [''],
-      receberResposta: [''],
-      receberRespostaTerceiros: [''],
-      terceiro: ''
+      DATA_QUEIMA: '',
+      HORA_QUEIMA: '',
+      APARELHO: '',
+      MARCA: '',
+      MODELO: '',
+      TEMPO_USO: '',
+      DATA_AGENDAMENTO: '',
+      ANTENA_PARABOLICA: [''],
+      TELEFONE_FIXO: [''],
+      ESTAVA_CHOVENDO: [''],
+      HAVIA_EQUIPE: [''],
+      OUTRA_RESIDENCIA: [''],
+      SOLUCAO_PRETENDIDA: '',
+      RECEBER_RESPOSTA: [''],
+      AUTORIZOU_TERCEIROS: [''],
+      TERCEIRO: ''
     });
   }
 
