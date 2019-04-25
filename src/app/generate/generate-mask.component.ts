@@ -235,7 +235,7 @@ export class GenerateMaskComponent  {
       .replace(accountDefault, account)
       .replace(phoneDefault, phone);
 
-    textReplace += ("\n\n" + tateUser + " " + nameUser);
+    textReplace += (tateUser + " " + nameUser);
   
     return textReplace;
   }

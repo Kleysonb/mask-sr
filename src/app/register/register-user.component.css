@@ -11,14 +11,7 @@ body {
   height: 100vh;
   background-color: #0D0C41 !important;
 }
-
 */
-
-body{
-  min-height: 100% !important;
-  height: auto !important;
-  background-color: green;
-}
 
 div.bloco {
   border: solid 1px #ccc;
