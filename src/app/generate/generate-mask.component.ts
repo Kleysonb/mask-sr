@@ -33,18 +33,15 @@ const MODALS = {
 export class GenerateMaskComponent  {
 
   @ViewChild('info') inputInfo: ElementRef;  
-  modelInfo: any;
+  modelInfo: any = {};
   infoFocus = false;
   user;
 
-  openModalBib(typeModal, data){
-    console.log(data);
+  openModalBib(typeModal, dataClient){
     const modalRef = this._modalService.open(ModalBibComponent);
     switch(typeModal){
       case 'info':
         modalRef.componentInstance.data = dataInfo.informacao;
-        // let aux = dataInfo.informacao.map(info => info.descricao = this.mask(info.descricao, data.name, data.account, data.phone));
-        // console.log(aux);
         modalRef.componentInstance.typeModal = "Informação";
         break;
       case 'order':
@@ -68,7 +65,7 @@ export class GenerateMaskComponent  {
   openModalInput(typeModal: string, data) {
     const modalRef = this._modalService.open(MODALS[typeModal]);
     modalRef.result.then((dataModal) => {
-      console.log(dataModal);
+      // console.log(dataModal);
       this.applyMaskModal(typeModal, dataModal, data);
     }).catch((error) => {
       console.log(error);
@@ -134,8 +131,8 @@ export class GenerateMaskComponent  {
     )
 
   selectedItem(item, data){
-    console.log(item.item);
-    console.log(data)
+    // console.log(item.item);
+    // console.log(data)
     switch(item.item.titulo){
       case this.nivelTensao:
         this.openModalInput('modalNivelTensao', data);
@@ -239,18 +236,20 @@ export class GenerateMaskComponent  {
       // console.log("Info")
       this.copy = this.mask(this.modelInfo.descricao, name, account, phone);
       this.subtitulo = this.modelInfo.subtitulo;
-    }
-
-    if(this.modelOrder.descricao){
-      //console.log("Order")
-      this.copy = this.mask(this.modelOrder.descricao, name, account, phone);
-      this.subtitulo = this.modelOrder.subtitulo;
-    }
-
-    if(this.modelComplaint.descricao){
-      //console.log("Complaint")
-      this.copy = this.mask(this.modelComplaint.descricao, name, account, phone);
-      this.subtitulo = this.modelComplaint.subtitulo;
+    }else{
+      if(this.modelOrder.descricao){
+        //console.log("Order")
+        this.copy = this.mask(this.modelOrder.descricao, name, account, phone);
+        this.subtitulo = this.modelOrder.subtitulo;
+      }else{
+        if(this.modelComplaint.descricao){
+          //console.log("Complaint")
+          this.copy = this.mask(this.modelComplaint.descricao, name, account, phone);
+          this.subtitulo = this.modelComplaint.subtitulo;
+        }else{
+          alert("Por favor, selecione uma consulta.")
+        }
+      }
     }
   }
 
