@@ -1,0 +1,18 @@
+ <div class="modal-header">
+      <h4 class="modal-title">Biblioteca de {{ typeModal }}</h4>
+      <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="card mt-1" *ngFor="let item of data">
+        <div class="card-body">
+          <h6 class="card-title">{{item.titulo}}</h6>
+          <p class="card-text" style="font-size: 0.9em;">{{item.subtitulo}}</p>
+          <p class="card-text" style="font-size: 0.65em; white-space: pre-line;" >{{item.descricao}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Fechar</button>
+    </div>

@@ -9,6 +9,17 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalDanosEletricos } from './modal-danos-eletricos/modal-danos-eletricos.component';
 import { ModalNivelTensao } from './modal-nivel-tensao/modal-nivel-tensao.component';
 
+@Component({
+  selector: 'ngbd-modal-content',
+  templateUrl: `./modal-bib.component.html`
+})
+export class ModalBibComponent {
+  @Input() data;
+  @Input() typeModal;
+
+  constructor(public activeModal: NgbActiveModal) {}
+}
+
 const MODALS = {
   modalDanosEletricos: ModalDanosEletricos,
   modalNivelTensao: ModalNivelTensao
@@ -26,34 +37,35 @@ export class GenerateMaskComponent  {
   infoFocus = false;
   user;
 
-  config = {
-    displayKey:"titulo", //if objects array passed which key to be displayed defaults to description
-    search: true, //true/false for the search functionlity defaults to false,
-    height: 'auto', //height of the list so that if there are more no of items it can show a scroll defaults to auto. With auto height scroll will never appear
-    placeholder:'Buscar Por Informação', // text to be displayed when no item is selected defaults to Select,
-    customComparator: ()=>{}, // a custom function using which user wants to sort the items. default is undefined and Array.sort() will be used in that case,
-    limitTo: dataInfo.informacao.length, // a number thats limits the no of options displayed in the UI similar to angular's limitTo pipe
-    moreText: 'more', // text to be displayed whenmore than one items are selected like Option 1 + 5 more
-    noResultsFound: 'Nenhuma Informação Encontrada!', // text to be displayed when no items are found while searching
-    searchPlaceholder:'Buscar', // label thats displayed in search input,
-    searchOnKey: 'titulo' // key on which search should be performed this will be selective search. if undefined this will be extensive search on all keys
+  openModalBib(typeModal, data){
+    console.log(data);
+    const modalRef = this._modalService.open(ModalBibComponent);
+    switch(typeModal){
+      case 'info':
+        modalRef.componentInstance.data = dataInfo.informacao;
+        // let aux = dataInfo.informacao.map(info => info.descricao = this.mask(info.descricao, data.name, data.account, data.phone));
+        // console.log(aux);
+        modalRef.componentInstance.typeModal = "Informação";
+        break;
+      case 'order':
+        modalRef.componentInstance.data = dataOrder.pedido;
+        modalRef.componentInstance.typeModal = "Pedido";
+        break;
+      case 'complaint':
+        modalRef.componentInstance.data = dataComplaint.reclamacao;
+        modalRef.componentInstance.typeModal = "Reclamação";
+        break;
+    }
   }
 
-  selectionChanged(event){
-    console.log(event)
-  }
-
-  dropdownOptions;
-  
   constructor(private _modalService: NgbModal, private formBuilder: FormBuilder){
     this.user = JSON.parse(localStorage.getItem("user"));
-    this.dropdownOptions = dataInfo.informacao;
   }
 
   danosEletricos = "DANOS ELÉTRICOS";
   nivelTensao = "NIVEL DE TENSÃO";
 
-  openModel(typeModal: string, data) {
+  openModalInput(typeModal: string, data) {
     const modalRef = this._modalService.open(MODALS[typeModal]);
     modalRef.result.then((dataModal) => {
       console.log(dataModal);
@@ -126,10 +138,10 @@ export class GenerateMaskComponent  {
     console.log(data)
     switch(item.item.titulo){
       case this.nivelTensao:
-        this.openModel('modalNivelTensao', data);
+        this.openModalInput('modalNivelTensao', data);
         break;
       case this.danosEletricos:
-        this.openModel('modalDanosEletricos', data);
+        this.openModalInput('modalDanosEletricos', data);
         break;
     }
   }

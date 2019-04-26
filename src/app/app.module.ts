@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { RegisterUserComponent } from './register/register-user.component';
 
 import { GenerateMaskComponent } from './generate/generate-mask.component';
+import { ModalBibComponent } from './generate/generate-mask.component';
 
 import { ModalDanosEletricos } from './generate/modal-danos-eletricos/modal-danos-eletricos.component';
 import { ModalNivelTensao } from './generate/modal-nivel-tensao/modal-nivel-tensao.component';
@@ -27,8 +28,8 @@ const appRoutes: Routes = [
   imports: [ RouterModule.forRoot(appRoutes),
   BrowserModule, FormsModule, NgbModule, ReactiveFormsModule, NgxMaskModule.forRoot(),
   SelectDropDownModule],
-  declarations: [ AppComponent, RegisterUserComponent, GenerateMaskComponent, ModalDanosEletricos, ModalNivelTensao ],
+  declarations: [ AppComponent, RegisterUserComponent, GenerateMaskComponent, ModalDanosEletricos, ModalNivelTensao, ModalBibComponent ],
   bootstrap: [ AppComponent ],
-  entryComponents: [ModalDanosEletricos, ModalNivelTensao]
+  entryComponents: [ModalDanosEletricos, ModalNivelTensao, ModalBibComponent]
 })
 export class AppModule { }

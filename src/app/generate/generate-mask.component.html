@@ -1,8 +1,8 @@
 <div class="container">
-  <div class="row pt-2">
+	<div class="row pt-2">
 
-    <div class="col-sm">
-      <label for="typeahead-basic">Dados do Cliente:</label>
+		<div class="col-sm">
+			<label for="typeahead-basic">Dados do Cliente:</label>
         <div class="input-group mb-1">
           <input #name type="text" class="form-control" placeholder="Nome" aria-label="name"
               aria-describedby="basic-addon1">
@@ -12,31 +12,23 @@
               aria-describedby="basic-addon1">
         </div>
         <div class="input-group mb-1">
-          <input #phone type="tel" class="form-control" mask="00 00000000000" placeholder="Telefone" aria-label="phone"
+          <input #phone type="tel" class="form-control" mask="000000000000" placeholder="Telefone" aria-label="phone"
               aria-describedby="basic-addon1">
         </div>  
     </div>
 
     <div class="col-sm">
 
-      <br>
-      <br>
-
-
-    <!-- ------------------------------- -->
-      <ngx-select-dropdown (change)="selectionChanged($event)" [multiple]="false" [(ngModel)]="modelInfo" [config]="config" [options]="dropdownOptions"></ngx-select-dropdown>
-      <br>
-      <!-- <br> -->
-      <!-- <ngx-select-dropdown (change)="selectionChanged($event)" formControlName="selectData" [multiple]="false" [config]="config" [options]="dropdownOptions"></ngx-select-dropdown> -->
-    <!-- ------------------------------- -->
-
       <ng-template #rtInfo let-r="result" let-t="term">
         <ngb-highlight [result]="r.titulo" [term]="t"></ngb-highlight>
       </ng-template>
     
       <div (click)="focusInfo()">
-        <label for="info">Buscar por Informação:</label>
-        <input [disabled]="infoFocus" id="info" type="text" class="form-control" [(ngModel)]="modelInfo" [ngbTypeahead]="searchInfo" [inputFormatter]="formatterInfo" [resultTemplate]="rtInfo"/>
+        <label for="info">Consultas:</label>
+        <input placeholder="Buscar por Informação" [disabled]="infoFocus" id="info" type="text" class="form-control" [(ngModel)]="modelInfo" [ngbTypeahead]="searchInfo" [inputFormatter]="formatterInfo" [resultTemplate]="rtInfo"/>
+        <div style="with:100%; text-align: right">
+          <button class="btn btn-link" (click)="openModalBib('info', {name: name.value, account: account.value, phone: phone.value})">Biblioteca de Informações</button>
+        </div>
       </div>
 
       <ng-template #rtOrder let-r="result" let-t="term">
@@ -44,8 +36,11 @@
       </ng-template>
               
       <div (click)="focusOrder()">
-        <label for="Order" class="mt-1">Buscar por Pedido:</label>
-        <input [disabled]="orderFocus" id="Order" type="text" class="form-control" [(ngModel)]="modelOrder" [ngbTypeahead]="searchOrder" [inputFormatter]="formatterOrder" [resultTemplate]="rtOrder"/>
+        <!-- <label for="Order">Buscar por Pedido:</label> -->
+        <input placeholder="Buscar por Pedido" [disabled]="orderFocus" id="Order" type="text" class="form-control" [(ngModel)]="modelOrder" [ngbTypeahead]="searchOrder" [inputFormatter]="formatterOrder" [resultTemplate]="rtOrder"/>
+        <div style="with:100%; text-align: right">
+          <button class="btn btn-link" (click)="openModalBib('order', {name: name.value, account: account.value, phone: phone.value})">Biblioteca de Pedidos</button>
+        </div>
       </div>
 
       <ng-template #rtComplaint let-r="result" let-t="term">
@@ -53,8 +48,11 @@
       </ng-template>
               
       <div (click)="focusComplaint()">
-        <label for="Complaint" class="mt-1">Buscar por Reclamação:</label>
-        <input [disabled]="complaintFocus" id="Complaint" type="text" class="form-control" [(ngModel)]="modelComplaint" [ngbTypeahead]="searchComplaint" [inputFormatter]="formatterComplaint" (selectItem)="selectedItem($event, {name: name.value, account: account.value, phone: phone.value})" [resultTemplate]="rtComplaint"/>
+        <!-- <label for="Complaint">Buscar por Reclamação:</label> -->
+        <input placeholder="Buscar por Reclamação" [disabled]="complaintFocus" id="Complaint" type="text" class="form-control" [(ngModel)]="modelComplaint" [ngbTypeahead]="searchComplaint" [inputFormatter]="formatterComplaint" (selectItem)="selectedItem($event, {name: name.value, account: account.value, phone: phone.value})" [resultTemplate]="rtComplaint"/>
+        <div style="with:100%; text-align: right">
+          <button class="btn btn-link" (click)="openModalBib('complaint', {name: name.value, account: account.value, phone: phone.value})">Biblioteca de Reclamaçõe</button>
+        </div>
       </div>
       <hr>
 
