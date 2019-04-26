@@ -15,6 +15,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule, Routes } from '@angular/router';
 
 import {NgxMaskModule} from 'ngx-mask'
+import { SelectDropDownModule } from 'ngx-select-dropdown'
 
 const appRoutes: Routes = [
   { path: '', component: RegisterUserComponent },
@@ -24,7 +25,8 @@ const appRoutes: Routes = [
 
 @NgModule({
   imports: [ RouterModule.forRoot(appRoutes),
-  BrowserModule, FormsModule, NgbModule, ReactiveFormsModule, NgxMaskModule.forRoot()],
+  BrowserModule, FormsModule, NgbModule, ReactiveFormsModule, NgxMaskModule.forRoot(),
+  SelectDropDownModule],
   declarations: [ AppComponent, RegisterUserComponent, GenerateMaskComponent, ModalDanosEletricos, ModalNivelTensao ],
   bootstrap: [ AppComponent ],
   entryComponents: [ModalDanosEletricos, ModalNivelTensao]

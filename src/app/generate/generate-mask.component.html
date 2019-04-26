@@ -12,12 +12,23 @@
               aria-describedby="basic-addon1">
         </div>
         <div class="input-group mb-1">
-          <input #phone type="tel" class="form-control" mask="(00) 00000000000" placeholder="Telefone" aria-label="phone"
+          <input #phone type="tel" class="form-control" mask="00 00000000000" placeholder="Telefone" aria-label="phone"
               aria-describedby="basic-addon1">
         </div>  
     </div>
 
     <div class="col-sm">
+
+      <br>
+      <br>
+
+
+    <!-- ------------------------------- -->
+      <ngx-select-dropdown (change)="selectionChanged($event)" [multiple]="false" [(ngModel)]="modelInfo" [config]="config" [options]="dropdownOptions"></ngx-select-dropdown>
+      <br>
+      <!-- <br> -->
+      <!-- <ngx-select-dropdown (change)="selectionChanged($event)" formControlName="selectData" [multiple]="false" [config]="config" [options]="dropdownOptions"></ngx-select-dropdown> -->
+    <!-- ------------------------------- -->
 
       <ng-template #rtInfo let-r="result" let-t="term">
         <ngb-highlight [result]="r.titulo" [term]="t"></ngb-highlight>
@@ -68,7 +79,7 @@
         <div style="width: 100%;">
           <p>Descrição: {{ subtitulo }} </p>
         </div>
-        <textarea #message [(ngModel)]="copy" rows="6" class="form-control" aria-label="With textarea"></textarea>
+        <textarea #message [(ngModel)]="copy" rows="12" class="form-control" aria-label="With textarea"></textarea>
         <div class="input-group-append">
             <button (click)="copyInputMessage(message)" class="btn btn-outline-secondary" type="button" id="button-addon2">COPIAR</button>
         </div>

@@ -15,6 +15,7 @@
     "core-js": "2.6.5",
     "jquery": "3.4.0",
     "ngx-mask": "^7.9.3",
+    "ngx-select-dropdown": "^1.0.1",
     "popper.js": "1.15.0",
     "rxjs": "6.4.0",
     "src": "^1.1.2",
