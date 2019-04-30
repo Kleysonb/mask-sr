@@ -18,6 +18,12 @@ export class ModalBibComponent {
   @Input() typeModal;
 
   constructor(public activeModal: NgbActiveModal) {}
+
+  copy(item){
+    item.select();
+    document.execCommand('copy');
+    item.setSelectionRange(0, 0);
+  }
 }
 
 const MODALS = {
@@ -41,18 +47,29 @@ export class GenerateMaskComponent  {
     const modalRef = this._modalService.open(ModalBibComponent);
     switch(typeModal){
       case 'info':
-        modalRef.componentInstance.data = dataInfo.informacao;
+        modalRef.componentInstance.data = this.compileBib(dataInfo.informacao, dataClient);
         modalRef.componentInstance.typeModal = "Informação";
         break;
       case 'order':
-        modalRef.componentInstance.data = dataOrder.pedido;
+        modalRef.componentInstance.data = this.compileBib(dataOrder.pedido, dataClient);
         modalRef.componentInstance.typeModal = "Pedido";
         break;
       case 'complaint':
-        modalRef.componentInstance.data = dataComplaint.reclamacao;
+        modalRef.componentInstance.data = this.compileBib(dataComplaint.reclamacao, dataClient);
         modalRef.componentInstance.typeModal = "Reclamação";
         break;
     }
+  }
+
+  compileBib(items: any, dataClient: any){
+    let bib = [];
+    let description;
+    items.forEach( item => {
+      description = this.mask(item.descricao, dataClient.name, dataClient.account, dataClient.phone);
+      let newItem = {titulo: item.titulo, subtitulo: item.subtitulo, descricao: description}
+      bib.push(newItem);
+    });
+    return bib;
   }
 
   constructor(private _modalService: NgbModal, private formBuilder: FormBuilder){
@@ -130,6 +147,7 @@ export class GenerateMaskComponent  {
         )
     )
 
+  
   selectedItem(item, data){
     // console.log(item.item);
     // console.log(data)
@@ -204,10 +222,10 @@ export class GenerateMaskComponent  {
     maskDefault['ENERGIA_OSCILANDO'] = "{$ENERGIA_OSCILANDO}";
     maskDefault['SEM_ENERGIA'] = "{$SEM_ENERGIA}";
     maskDefault['PONTO_REFERENCIA'] = "{$PONTO_REFERENCIA}";
-    maskDefault['SOLUCAO_PRETENDIDA'] = "{$SOLUCAO_PRETENDIDA}";
-    maskDefault['RECEBER_RESPOSTA'] = "{$RECEBER_RESPOSTA}";
-    maskDefault['AUTORIZOU_TERCEIROS'] = "{$AUTORIZOU_TERCEIROS}";
-    maskDefault['TERCEIRO'] = "{$TERCEIRO}";
+    // maskDefault['SOLUCAO_PRETENDIDA'] = "{$SOLUCAO_PRETENDIDA}";
+    // maskDefault['RECEBER_RESPOSTA'] = "{$RECEBER_RESPOSTA}";
+    // maskDefault['AUTORIZOU_TERCEIROS'] = "{$AUTORIZOU_TERCEIROS}";
+    // maskDefault['TERCEIRO'] = "{$TERCEIRO}";
 
     let textReplace = text;
     for(let attribute in maskDefault){
@@ -266,7 +284,7 @@ export class GenerateMaskComponent  {
       .replace(accountDefault, account)
       .replace(phoneDefault, phone);
 
-    textReplace += (tateUser + " " + nameUser);
+    textReplace += (`${tateUser} ${nameUser}`);
   
     return textReplace;
   }

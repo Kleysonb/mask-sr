@@ -25,11 +25,11 @@ export class ModalNivelTensao {
       VIZINHO_UTILIZA: [''],
       ENERGIA_OSCILANDO: [''],
       SEM_ENERGIA: [''],
-      PONTO_REFERENCIA: [''],
-      SOLUCAO_PRETENDIDA: '',
-      RECEBER_RESPOSTA: '',
-      AUTORIZOU_TERCEIROS: '',
-      TERCEIRO: ''
+      PONTO_REFERENCIA: ''
+      // SOLUCAO_PRETENDIDA: '',
+      // RECEBER_RESPOSTA: '',
+      // AUTORIZOU_TERCEIROS: '',
+      // TERCEIRO: ''
     });
   }
 

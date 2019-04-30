@@ -1,15 +1,25 @@
- <div class="modal-header">
-      <h4 class="modal-title">Biblioteca de {{ typeModal }}</h4>
-      <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+<div class="modal-header">
+	<h4 class="modal-title">Biblioteca de {{ typeModal }}</h4>
+	<button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
     <div class="modal-body">
-      <div class="card mt-1" *ngFor="let item of data">
+      <div class="card mt-2" *ngFor="let item of data">
+        <div class="card-header">
+          <div class="row">
+            <div class="col-sm">
+              <h6 class="card-title" style="font-size: 0.9em;">{{item.titulo}}</h6>
+            </div>
+            <div class="col-sm text-right">
+              <button type="button" (click)="copy(message)" class="btn btn-link">Copiar</button>
+            </div>
+          </div>
+        </div>
         <div class="card-body">
-          <h6 class="card-title">{{item.titulo}}</h6>
           <p class="card-text" style="font-size: 0.9em;">{{item.subtitulo}}</p>
-          <p class="card-text" style="font-size: 0.65em; white-space: pre-line;" >{{item.descricao}}</p>
+          <textarea style="font-size: 0.9em;" #message [value]="item.descricao" rows="6" class="form-control" aria-label="With textarea"></textarea>
+          <!-- <p class="card-text" style="font-size: 0.65em; white-space: pre-line;" >{{item.descricao}}</p> -->
         </div>
       </div>
     </div>
