@@ -15,6 +15,10 @@
           <input #phone type="tel" class="form-control" mask="000000000000" placeholder="Telefone" aria-label="phone"
               aria-describedby="basic-addon1">
         </div>  
+        <div class="input-group mb-1">
+          <input #reference_point type="text" class="form-control" placeholder="Ponto de Referência (Caso Necessário)" aria-label="name"
+              aria-describedby="basic-addon1">
+        </div>
     </div>
 
     <div class="col-sm">
@@ -27,7 +31,7 @@
         <label for="info">Consultas:</label>
         <input placeholder="Buscar por Informação" [disabled]="infoFocus" id="info" type="text" class="form-control" [(ngModel)]="modelInfo" [ngbTypeahead]="searchInfo" [inputFormatter]="formatterInfo" [resultTemplate]="rtInfo"/>
         <div style="with:100%; text-align: right">
-          <button class="btn btn-link" (click)="openModalBib('info', {name: name.value, account: account.value, phone: phone.value})">Biblioteca de Informações</button>
+          <button class="btn btn-link" (click)="openModalBib('info', {name: name.value, account: account.value, phone: phone.value, reference_point: reference_point.value})">Biblioteca de Informações</button>
         </div>
       </div>
 
@@ -39,7 +43,7 @@
         <!-- <label for="Order">Buscar por Pedido:</label> -->
         <input placeholder="Buscar por Pedido" [disabled]="orderFocus" id="Order" type="text" class="form-control" [(ngModel)]="modelOrder" [ngbTypeahead]="searchOrder" [inputFormatter]="formatterOrder" [resultTemplate]="rtOrder"/>
         <div style="with:100%; text-align: right">
-          <button class="btn btn-link" (click)="openModalBib('order', {name: name.value, account: account.value, phone: phone.value})">Biblioteca de Pedidos</button>
+          <button class="btn btn-link" (click)="openModalBib('order', {name: name.value, account: account.value, phone: phone.value, reference_point: reference_point.value})">Biblioteca de Pedidos</button>
         </div>
       </div>
 
@@ -51,7 +55,7 @@
         <!-- <label for="Complaint">Buscar por Reclamação:</label> -->
         <input placeholder="Buscar por Reclamação" [disabled]="complaintFocus" id="Complaint" type="text" class="form-control" [(ngModel)]="modelComplaint" [ngbTypeahead]="searchComplaint" [inputFormatter]="formatterComplaint" (selectItem)="selectedItem($event, {name: name.value, account: account.value, phone: phone.value})" [resultTemplate]="rtComplaint"/>
         <div style="with:100%; text-align: right">
-          <button class="btn btn-link" (click)="openModalBib('complaint', {name: name.value, account: account.value, phone: phone.value})">Biblioteca de Reclamaçõe</button>
+          <button class="btn btn-link" (click)="openModalBib('complaint', {name: name.value, account: account.value, phone: phone.value, reference_point: reference_point.value})">Biblioteca de Reclamaçõe</button>
         </div>
       </div>
       <hr>
@@ -61,7 +65,7 @@
           <button (click)="clear(name, account, phone)" type="button" class="btn btn-outline-secondary">LIMPAR CAMPOS</button>
         </div>
         <div class="col-6">
-            <button (click)="generate(name.value, account.value, phone.value)" type="button" class="btn btn-primary btn-block mb-3">GERAR</button>
+            <button (click)="generate(name.value, account.value, phone.value, reference_point.value)" type="button" class="btn btn-primary btn-block mb-3">GERAR</button>
         </div>
       </div>
 

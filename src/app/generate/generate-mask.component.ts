@@ -65,7 +65,7 @@ export class GenerateMaskComponent  {
     let bib = [];
     let description;
     items.forEach( item => {
-      description = this.mask(item.descricao, dataClient.name, dataClient.account, dataClient.phone);
+      description = this.mask(item.descricao, dataClient.name, dataClient.account, dataClient.phone, dataClient.reference_point);
       let newItem = {titulo: item.titulo, subtitulo: item.subtitulo, descricao: description}
       bib.push(newItem);
     });
@@ -249,20 +249,20 @@ export class GenerateMaskComponent  {
   copy: string;
   subtitulo;
 
-  generate(name, account, phone){
+  generate(name, account, phone, reference_point){
     if(this.modelInfo.descricao){
       // console.log("Info")
-      this.copy = this.mask(this.modelInfo.descricao, name, account, phone);
+      this.copy = this.mask(this.modelInfo.descricao, name, account, phone, reference_point);
       this.subtitulo = this.modelInfo.subtitulo;
     }else{
       if(this.modelOrder.descricao){
         //console.log("Order")
-        this.copy = this.mask(this.modelOrder.descricao, name, account, phone);
+        this.copy = this.mask(this.modelOrder.descricao, name, account, phone, reference_point);
         this.subtitulo = this.modelOrder.subtitulo;
       }else{
         if(this.modelComplaint.descricao){
           //console.log("Complaint")
-          this.copy = this.mask(this.modelComplaint.descricao, name, account, phone);
+          this.copy = this.mask(this.modelComplaint.descricao, name, account, phone, reference_point);
           this.subtitulo = this.modelComplaint.subtitulo;
         }else{
           alert("Por favor, selecione uma consulta.")
@@ -271,10 +271,11 @@ export class GenerateMaskComponent  {
     }
   }
 
-  mask(text, name, account, phone): string{    
+  mask(text, name, account, phone, reference_point = ""): string{    
     const nameDefault = "{$NOME_CLIENTE}";
     const accountDefault = "{$CONTA_CONTRATO}";
     const phoneDefault = "{$TELEFONE}";
+    const referencePointDefault = "{$PONTO_REFERENCIA}";
 
     const tateUser = this.user.tate;
     const nameUser = this.user.name;
@@ -282,11 +283,12 @@ export class GenerateMaskComponent  {
     let textReplace = text
       .replace(nameDefault, name)
       .replace(accountDefault, account)
-      .replace(phoneDefault, phone);
+      .replace(phoneDefault, phone)
+      .replace(referencePointDefault, reference_point);
 
     textReplace += (`${tateUser} ${nameUser}`);
   
-    return textReplace;
+    return textReplace.toUpperCase();
   }
 
   clear(name, account, phone){
